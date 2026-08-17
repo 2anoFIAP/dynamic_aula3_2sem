@@ -6,6 +6,7 @@
 print(inverter_rec("Fiap"))
 
 '''
+import time
 
 '''
 # Contagem regressiva
@@ -55,3 +56,41 @@ print(soma_rec(100))
 
 #Memoizacao
 #È uma tecnica para armazenar resultados ja calculos, evitando recomputacao/refazer o codigo inteiro para prosseguir.
+
+
+'''#fatorial com memo
+def fatorial(n, memo=None):
+    if memo is None:
+        memo = {}
+    if n in memo:
+        return memo[n]
+    if n == 0:
+        return 1
+    memo[n] = n * fatorial(n - 1, memo)
+    return memo[n]
+
+fatorial(5, memo=None)
+'''
+#so vai fazer diferenca com muitas repeticoes, muitas mesmo
+
+
+
+#Exercicio
+def fib(n, memo=None):
+    if memo is None:
+        memo = {}
+    if n <= 1:
+        return n
+    return fib(n - 1, memo) + fib(n - 2, memo)
+
+print(fib(40, memo=None))
+
+#versao melhor
+def fib(n, memo={}):
+    if n in memo:
+        return memo[n]
+
+    if n <= 1:
+        return n
+    memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
+    return memo[n]
