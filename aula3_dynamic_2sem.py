@@ -74,7 +74,7 @@ fatorial(5, memo=None)
 #so vai fazer diferenca com muitas repeticoes, muitas mesmo
 
 
-
+'''
 #Exercicio
 def fib(n, memo=None):
     if memo is None:
@@ -94,3 +94,14 @@ def fib(n, memo={}):
         return n
     memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
     return memo[n]
+
+
+'''
+def inverter_rec_memoization(s, memo={}):
+    if s in memo:
+        return memo[s]
+
+    if len(s) <= 1:
+        return s
+    return inverter_rec_memoization(s[1:], memo) + s[0]
+print(inverter_rec_memoization("Fiap", memo={}))
